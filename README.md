@@ -147,20 +147,44 @@ without reading what came before or after?
      visible. Milestone 4. -->
 
 **Question:**
-
+Why am i unable to use leftover di
+ning dollars from the previous autum semester this spring. Answer using only the information in the documents below. If they don't cover it, say you don't have enough information."
 **Answer:**
+Dining dollars roll over from the autumn semester to the spring, but whatever is left in May disappears. (Source: admin_dining_dollars.txt)
 
+Sources retrieved: admin_dining_dollars.txt, admin_meal_plan_changes.txt, course_econ_101, dining_north_kitchen, dining_pellew_dining_hall
 ```
 ```
 
 **My relevance cutoff:**
-
+     0.5
 <!-- The number you set in config.py, and how you got there.
 
      You ran five questions your corpus covers and the five in OUT_OF_SCOPE
      that it clearly doesn't, and wrote down the best distance for each. What
      did those two groups look like? Where was the gap? Put the actual numbers
      here — the table below wants all ten rows.
+
+Q1: (best distance 0.203, cutoff 0.6)
+
+Q2: (best distance 0.375, cutoff 0.6)
+
+Q3: (best distance 0.274, cutoff 0.6)
+
+Q4: (best distance 0.467, cutoff 0.6)
+
+Q5: (best distance 0.427, cutoff 0.6)
+
+OOSQ1: (best distance 0.913, cutoff 0.6)
+
+OOSQ2: (best distance 0.934, cutoff 0.6)
+
+OOSQ3: (best distance 0.942, cutoff 0.6)
+
+OOSQ4: (best distance 0.844, cutoff 0.6)
+
+OOSQ5: (best distance 0.877, cutoff 0.6)
+
 
      Milestone 4. -->
 
