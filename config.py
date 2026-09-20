@@ -24,11 +24,49 @@ CORPUS = os.getenv("AI201_CORPUS", "campus_life")
 #this is the corpus i am going to use
 
 # ─── Chunking (Milestone 3) ──────────────────────────────────────────────────
-# These are deliberately plain, generic numbers. Milestone 3 is where you
-# replace them with numbers that fit the documents you actually read.
+# These two numbers mean something different now than they did in the starter.
+#
+# campus_life documents run 300-554 characters each, so the starter's 800-
+# character window never cut anything: 88 documents came out as 88 chunks.
+# chunker.py::split_documents groups related documents together instead —
+# one dorm, one course or one dining venue per chunk — so CHUNK_SIZE is a
+# CEILING on a merged chunk rather than a length to cut at.
+#
+# 1400 is measured, not guessed. The 23 merged groups in campus_life run from
+# 788 characters (dining_north_kitchen) to 1400 (housing_old_brewhouse); all 7
+# dining and all 9 course groups are under 1070, and only housing reaches up
+# here. A 1200 ceiling split five housing groups, one of them six characters
+# over the line, which is an arbitrary place to cut a building in half.
+#
+# This is knowingly a little above what the embedder reads. all-MiniLM-L6-V2
+# takes 256 tokens (~1,000-1,200 characters) and silently ignores the rest.
+# Only the vector is truncated — Chroma stores and returns the whole chunk — so
+# the cost is that the tail of the longest housing groups is retrievable but
+# not matchable, and the two-line header in chunker.py::_header is what pays
+# for it: the building name and "laundry, noise" sit in the first 80
+# characters, inside the window, whatever falls off the end.
+#
+# That trade only works at this scale. Grouping a whole category instead —
+# "all housing" is ~10,000 characters — would put roughly 88% of the corpus
+# past the window with nothing in the pipeline reporting it.
+CHUNK_SIZE = 1400       # ceiling on a merged chunk, in characters
 
-CHUNK_SIZE = 800        # characters per chunk
-CHUNK_OVERLAP = 120     # characters shared between neighbouring chunks
+# The ceiling used when a single document has to be cut up, rather than when
+# several are merged. It is lower than CHUNK_SIZE on purpose: a merged chunk
+# can afford to overshoot the embedding window because its header keeps the
+# subject inside it, and a cut-up document has no such guarantee.
+#
+# Nothing in the provided corpora is inherently longer than this — city_guides
+# has 98 markdown sections and the largest is 711 characters. What this really
+# controls is how many neighbouring sections get packed into one chunk before
+# the next one starts.
+EMBED_LIMIT = 1100      # ceiling when splitting one long document
+
+# Only applies where a single document is genuinely too long for one chunk —
+# the city_guides corpus, whose guides run ~2,000 characters. Merged
+# campus_life chunks are split at document boundaries instead, and repeat their
+# header, so they never need character overlap.
+CHUNK_OVERLAP = 150     # characters carried across a split inside one document
 
 
 # ─── Retrieval (Milestone 4) ─────────────────────────────────────────────────

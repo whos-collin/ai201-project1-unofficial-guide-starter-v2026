@@ -44,39 +44,102 @@
 
 ## Sample Chunks
 
-<!-- Five chunks, pasted as text. Label each one and name the file it came from
-     AND the function that produced it — the grader checks your code against
-     what you claim here.
+======================================================================
+Chunk 1  |  source: admin_add_drop_deadline.txt#0  |  produced by: chunker.py::split_documents
+======================================================================
+On the add/drop deadline
 
-     `python app.py chunks -n 5` prints all three for you. Copy them straight
-     across.
+You can add a course through the end of the second week. Dropping is a longer window — through the end of week six — but a drop after week two shows as a W on your transcript. Nothing anywhere on the registrar's site says this plainly, and students find out from each other.
 
-     Milestone 3. -->
+======================================================================
+Chunk 2  |  source: admin_parking_permits.txt#0  |  produced by: chunker.py::split_documents
+======================================================================
+On the parking permits
 
-**Chunk 1** — source: `` — produced by: ``
+Student permits for the west lots go on sale in August and sell out in about three days. The east lot never sells out because it's a 12-minute walk. There is no waitlist — people who miss the window park on Verrill Street and walk in, which is legal but unmarked and confuses everyone.
 
-```
-```
+======================================================================
+Chunk 3  |  source: course_cs_210#0  |  produced by: chunker.py::split_documents
+======================================================================
+CS 210 Data Structures
+Topics covered: overview, exams, workload
 
-**Chunk 2** — source: `` — produced by: ``
+=== course_cs_210.txt ===
+CS 210 Data Structures
 
-```
-```
+I'm a junior and I've done this twice now. Format is lecture with weekly labs; slides go up after class, not before. Assessment: two midterms and a final, all drawn from lecture material rather than the textbook. Midterms are curved, the final is not.
 
-**Chunk 3** — source: `` — produced by: ``
+Expect 8 to 10 hours a week outside class.
 
-```
-```
+The one piece of advice: do the labs even though they're only 10% — the exams reuse the lab problems.
 
-**Chunk 4** — source: `` — produced by: ``
+=== course_cs_210_exams.txt ===
+CS 210 Data Structures — assessment
 
-```
-```
+Two midterms and a final, all drawn from lecture material rather than the textbook. Midterms are curved, the final is not.
 
-**Chunk 5** — source: `` — produced by: ``
+Do the labs even though they're only 10% — the exams reuse the lab problems.
 
-```
-```
+=== course_cs_210_workload.txt ===
+Workload for CS 210 Data Structures
+
+People keep asking so: 8 to 10 hours a week outside class. That's real time, not optimistic time.
+
+It's front-loaded — the first month is heavier than the rest, partly because you're learning the format.
+
+======================================================================
+Chunk 4  |  source: dining_kestrel_commons#0  |  produced by: chunker.py::split_documents
+======================================================================
+Kestrel Commons
+Topics covered: overview, followup
+
+=== dining_kestrel_commons.txt ===
+Kestrel Commons
+
+I'm a junior and I've done this twice now. Wait times: 20 to 25 minutes between 12:15 and 1:00, under 5 minutes before 11:45. The thing worth going for is the stir-fry station, made to order. The thing to know is that the salad bar wilts after 1:30.
+
+Hours are 7:00am to 9:00pm weekdays, 9:00am to 8:00pm weekends. Costs one meal swipe, or $12.50 cash.
+
+=== dining_kestrel_commons_followup.txt ===
+Re: Kestrel Commons
+
+Adding to what people have said about Kestrel Commons. The wait figure of 20 to 25 minutes between 12:15 and 1:00 matches what I've seen. If you're trying to eat between classes, go before 11:45 and it's a different building entirely.
+
+Also worth saying: the salad bar wilts after 1:30. Nobody tells you this at orientation.
+
+======================================================================
+Chunk 5  |  source: housing_fenwick_court#0  |  produced by: chunker.py::split_documents
+======================================================================
+Fenwick Court — what it's actually like
+Topics covered: overview, laundry, noise
+
+=== housing_fenwick_court.txt ===
+Fenwick Court — what it's actually like
+
+Just finished a year in this building. Built 2015. Rooms are suites of four with a shared kitchenette.
+
+The good: in-suite bathrooms, and the kitchenette means you can skip a meal plan tier.
+
+The bad: the furthest housing from central campus, about 18 minutes on foot.
+
+Laundry costs $2.00 wash, $1.75 dry, app-based. On noise: thin walls between suites; the kitchenettes carry sound.
+
+=== housing_fenwick_court_laundry.txt ===
+Laundry in Fenwick Court
+
+Machines take $2.00 wash, $1.75 dry, app-based. There are eight washers and six dryers for the building, which is the wrong ratio and means the dryers back up on Sunday evenings.
+
+Best time to do laundry here is Tuesday or Wednesday morning. Sunday after 6pm you will wait.
+
+=== housing_fenwick_court_noise.txt ===
+Noise levels in Fenwick Court
+
+Asked about this a lot so writing it down. Thin walls between suites; the kitchenettes carry sound.
+
+If you're someone who needs quiet to work, the library is open until 2am during term and that's what most people in this building end up doing.
+
+For each one, ask: could someone answer a question using only this,
+without reading what came before or after?
 
 ## Sample Answer
 

@@ -21,13 +21,34 @@ Swap them for your own if you like. Keep five of them either way: criterion 3
 names a target of "4 of 5", and four of three is not a thing.
 """
 
+# Every `expects` below is a literal lifted from the document that answers the
+# question, not a paraphrase of it. That matters for the scorer in unit 2: a
+# correct answer to the HIST 118 question says "about 120 pages a week", which
+# is what course_hist_118_workload.txt says — it does not say "moderate
+# workload", so an `expects` of "moderate workload" would mark a right answer
+# wrong. The source file is named after each one so the expectation can be
+# checked against the corpus rather than trusted.
 QUESTIONS = [
     # {"question": "...", "expects": "..."},
-    {"question": "What do students say about wait times at Commons during lunch?", "expects": "long wait times"},
-    {"question": "What is the expected workload of HIST 118?", "expects": "moderate workload"},
-    {"question": "How satisfied are students with the cleanliness of the library?", "expects": "satisfied"},
-    {"question": "What is the average rating for the dining halls on a scale of 1 to 5?", "expects": "4.5"},
-    {"question": "What is the max number of hours per week you can work without affecting your studies?", "expects": "12 hours"},
+
+    # dining_kestrel_commons.txt + dining_kestrel_commons_followup.txt.
+    # Both files give this figure; the merged chunk carries both.
+    {"question": "How long are the lunch waits at Kestrel Commons between 12:15 and 1:00?", "expects": "20 to 25 minutes"},
+
+    # course_hist_118_workload.txt — "a lot of reading, about 120 pages a week"
+    {"question": "What is the expected weekly reading load for HIST 118?", "expects": "120 pages"},
+
+    # study_library_hours.txt — the reading-week hours are the counterintuitive
+    # part ("until 2am during term, until 10pm during reading week").
+    {"question": "How late is the library open during reading week?", "expects": "10pm"},
+
+    # housing_fenwick_court.txt has the prices, housing_fenwick_court_laundry.txt
+    # has the timing. Answering both halves needs both files, which is exactly
+    # what chunker.py::split_documents merges into one chunk.
+    {"question": "In Fenwick Court, what does laundry cost and when is the best time to go?", "expects": "Tuesday"},
+
+    # money_jobs.txt — "Maximum is 20 hours a week during term."
+    {"question": "What is the maximum number of hours a week you can work on campus during term?", "expects": "20 hours"},
 ]
 
 # Questions from a different world entirely. Your gate should refuse all five.
