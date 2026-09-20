@@ -21,7 +21,7 @@ load_dotenv(ROOT / ".env")
 # Options are the folder names inside corpora/. See corpora/README.md.
 
 CORPUS = os.getenv("AI201_CORPUS", "campus_life")
-
+#this is the corpus i am going to use
 
 # ─── Chunking (Milestone 3) ──────────────────────────────────────────────────
 # These are deliberately plain, generic numbers. Milestone 3 is where you
