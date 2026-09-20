@@ -56,7 +56,7 @@ in at least 4 of 5 tries.
 ---
 
 ## 4. Something about your chunks
-
+Each chunk contains information about related subdivisions of the corpora, no chunk contains different parts of subdivision.
 <!-- YOU WRITE THIS ONE.
 
      How would you know if your chunks were the right size? Name something
@@ -72,13 +72,13 @@ in at least 4 of 5 tries.
 
 
 **Why this target:**
-
+Chunks should only contain related subdivisions (e.g. only dining corpus elements and not some dining and some study info.) for relevant data reasons.
 
 
 ---
 
 ## 5. Your choice
-
+Responses should be tailored to the person asking them, if question sounds like a student, respond like a student (or using students written corpus elements), and vice versa for a professor
 <!-- YOU WRITE THIS ONE TOO.
 
      Pick something you actually care about getting right. It could be about
@@ -90,7 +90,7 @@ in at least 4 of 5 tries.
 
 
 **Why this target:**
-
+There isnt a particular stricter or looser adjustment to be made for this one, however the model should respond how a person wants it to respond.
 
 
 ---
