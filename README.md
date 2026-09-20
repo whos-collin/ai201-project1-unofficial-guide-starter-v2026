@@ -21,6 +21,9 @@
 
 ## What This Does
 
+I picked the campus life corpus as I am currentl in college and information like this is used in my day to day life all the time. This model answers many types of questions pertaining to the college experience, including housing, transit, campus jobs, dining and more. 
+
+
 <!-- Three or four sentences. Which corpus you picked, and the kinds of
      questions your system answers. Write it for someone who has never seen
      this repo.
@@ -29,8 +32,50 @@
 
 ## Chunking Strategy
 
-**Chunk size:**
-**Overlap:**
+ These two numbers mean something different now than they did in the starter.
+ campus_life documents run 300-554 characters each, so the starter's 800-
+ character window never cut anything: 88 documents came out as 88 chunks.
+ chunker.py::split_documents groups related documents together instead —
+ one dorm, one course or one dining venue per chunk — so CHUNK_SIZE is a
+ CEILING on a merged chunk rather than a length to cut at.
+
+ 1400 is measured, not guessed. The 23 merged groups in campus_life run from
+ 788 characters (dining_north_kitchen) to 1400 (housing_old_brewhouse); all 7
+ dining and all 9 course groups are under 1070, and only housing reaches up
+ here. A 1200 ceiling split five housing groups, one of them six characters
+ over the line, which is an arbitrary place to cut a building in half.
+
+ This is knowingly a little above what the embedder reads. all-MiniLM-L6-V2
+ takes 256 tokens (~1,000-1,200 characters) and silently ignores the rest.
+ Only the vector is truncated — Chroma stores and returns the whole chunk — so
+ the cost is that the tail of the longest housing groups is retrievable but
+ not matchable, and the two-line header in chunker.py::_header is what pays
+ for it: the building name and "laundry, noise" sit in the first 80
+ characters, inside the window, whatever falls off the end.
+
+ That trade only works at this scale. Grouping a whole category instead —
+ "all housing" is ~10,000 characters — would put roughly 88% of the corpus
+ past the window with nothing in the pipeline reporting it.
+**CHUNK_SIZE = 1400**    # ceiling on a merged chunk, in characters
+
+ The ceiling used when a single document has to be cut up, rather than when
+ several are merged. It is lower than CHUNK_SIZE on purpose: a merged chunk
+ can afford to overshoot the embedding window because its header keeps the
+ subject inside it, and a cut-up document has no such guarantee.
+
+ Nothing in the provided corpora is inherently longer than this — city_guides
+ has 98 markdown sections and the largest is 711 characters. What this really
+ controls is how many neighbouring sections get packed into one chunk before
+ the next one starts.
+**EMBED_LIMIT** = 1100 **     # ceiling when splitting one long document
+
+ Only applies where a single document is genuinely too long for one chunk —
+ the city_guides corpus, whose guides run ~2,000 characters. Merged
+ campus_life chunks are split at document boundaries instead, and repeat their
+ header, so they never need character overlap.
+**CHUNK_OVERLAP = 150 **    # characters carried across a split inside one document
+
+
 
 <!-- What about YOUR documents made you pick these numbers? Short posts and
      long sectioned guides don't want the same chunking, and "800 seemed
@@ -193,6 +238,10 @@ OOSQ5: (best distance 0.877, cutoff 0.6)
 |  |  |  |
 
 ## How I Used AI
+
+I used AI to firstly help me write the chunking function. I wanted to create a function that strayed slightly differently from what I was asked to do, but made sense to me. It made the most sense to chunk documents my the specific topic they were talking about (i.e. first into housing, then into laundry in the housing topic). I initially wanted to chunk by overall topic, however as I was promting claude, I then brought up that it was actually bad practice, and had claude go away from that route, instead coming to the solution we have here. 
+
+Secondly, I had it help me search for a term. Even if this seems rudimentary, and I could have searched through all the files my self, the projects instructions did not define where top-k was located. I prompted claude to look for it for me and it promptly returned all the locations that term was located. It also returned all the variations of that term (top-k vs TOP_K).
 
 <!-- Two specific moments. For each: what you asked for, what came back, and
      what you changed about it.
