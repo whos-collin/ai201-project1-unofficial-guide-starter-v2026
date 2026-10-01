@@ -348,13 +348,13 @@ Secondly, I had it help me search for a term. Even if this seems rudimentary, an
 
 | Criterion | Target | Run 1 | Run 2 | Run 3 | Verdict |
 |---|---|---|---|---|---|
-| 1. Retrieved chunk contains the answer | 4 of 5 |  |  |  |  |
-| 2. Every answer names a source | 5 of 5 |  |  |  |  |
-| 3. Gate stops out-of-corpus questions | 4 of 5 |  |  |  |  |
-| 4. | | | | | |
-| 5. | | | | | |
+| 1. Retrieved chunk contains the answer | 4 of 5 | Met | Met | Met | Met |
+| 2. Every answer names a source | 5 of 5 | Met | Met | Met | Met |
+| 3. Gate stops out-of-corpus questions | 4 of 5 | Met | Met | Met | Met |
+| 4. | Each chunk contains information about related subdivisions of the corpora, no chunk contains different parts of subdivision.|5 of 5 | Met | Met | Met |
+| 5. | or at least 4 of my 5 test questions, every factual claim in the answer (a time, place, price, rule, etc.) can be found in the retrieved chunks.| Met | Met | Met | Met |
 
-**Did it help?**
+**Did it help?** Yes this helped, it converted the criteria into something thats actually testable and can pass. THis was not however an actual mechanical change, so logs cannot show you if it was an improvement over the last instance
 
 <!-- Say plainly whether it did, and how you know. If it made things worse,
      say that — a change that backfired, honestly reported, earns full credit
