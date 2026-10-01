@@ -330,13 +330,13 @@ Secondly, I had it help me search for a term. Even if this seems rudimentary, an
      Missed nothing? Say so, then say honestly whether your targets were set
      low, and which one you'd tighten and to what.
 
-     Milestone 3. -->
+     Milestone 3. --> The Missed Criteria 5 was not caused by the program, but by having an untestable criterion, I have since changed it to be something actually identifiable.
 
 ## The Improvement
 
-**What I changed:**
+**What I changed: I changed the criteria to be something actually measurably, and it additionally bounces off of one other criterion and further verifies it**
 
-**Why I picked it:**
+**Why I picked it: I couldnt judge how a response sounds accutarely question by question, without either inserting a sentence in each query that stated whether someone was a professor or student which seemed slightly pointless. This new criteria works off of another one and can actually be verified each time. **
 
 <!-- Connect it to a specific diagnosis above in one sentence. If you can't,
      you picked a fix because it sounded impressive. -->
