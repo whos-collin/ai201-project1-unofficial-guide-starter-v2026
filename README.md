@@ -283,11 +283,11 @@ Secondly, I had it help me search for a term. Even if this seems rudimentary, an
 
 | Criterion | Target | Run 1 | Run 2 | Run 3 | Verdict |
 |---|---|---|---|---|---|
-| 1. Retrieved chunk contains the answer | 4 of 5 |  |  |  |  |
-| 2. Every answer names a source | 5 of 5 |  |  |  |  |
-| 3. Gate stops out-of-corpus questions | 4 of 5 |  |  |  |  |
-| 4. | | | | | |
-| 5. | | | | | |
+| 1. Retrieved chunk contains the answer | 4 of 5 | Met | Met | Met | Met |
+| 2. Every answer names a source | 5 of 5 | Met | Met | Met | Met |
+| 3. Gate stops out-of-corpus questions | 4 of 5 | Met | Met | Met | Met |
+| 4. | Each chunk contains information about related subdivisions of the corpora, no chunk contains different parts of subdivision.|5 of 5 | Met | Met | Met |
+| 5. | Responses should be tailored to the person asking them, if question sounds like a student, respond like a student (or using students written corpus elements), and vice versa for a professor | ? | ? | ? | ? |
 
 <!-- Underneath, paste the REAL output for each criterion from one of your
      runs — the actual text your system produced, not a description of it.
@@ -306,11 +306,11 @@ Secondly, I had it help me search for a term. Even if this seems rudimentary, an
 
 | # | Criterion | Verdict | How I decided |
 |---|---|---|---|
-| 1 |  |  |  |
-| 2 |  |  |  |
-| 3 |  |  |  |
-| 4 |  |  |  |
-| 5 |  |  |  |
+| 1 | Retrieved chunk contains the answer | Met | Returned files in the chunk and looked to see if source text was in the chunk |
+| 2 | Every answer names a source | Met | Looked through results doc to determine if every one had a source section (also ctrl f helped) |
+| 3 | Gate stops out-of-corpus questions | Met | Looked at how many were refused 5/5 |
+| 4 | Each chunk contains information about related subdivisions of the corpora, no chunk contains different parts of subdivision. | Met | Looked at "sources" section to see if it was reasonable for the model to chunk together files it did (i.e. asking question about a course, chunked course docs together) |
+| 5 | Responses should be tailored to the person asking them, if question sounds like a student, respond like a student (or using students written corpus elements), and vice versa for a professor | Missed? | In hindsight I realize that this is something that cant really be tested for, the model responded flatly so i guess its a fail? Also, could have been written better as a criteria |
 
 ## Diagnoses
 

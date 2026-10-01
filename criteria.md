@@ -17,7 +17,7 @@ pipeline earns credit; *"80% seemed reasonable"* does not.
 
 ---
 
-## 1. Retrieved chunks contain the answer
+## 1. Retrieved chunks contain the answer (MET)
 
 For at least 4 of my 5 test questions, the retrieved chunks include one that
 contains the answer.
@@ -28,7 +28,7 @@ contains the answer.
 
 ---
 
-## 2. Every answer names a source
+## 2. Every answer names a source (MET)
 
 Every answer the system produces names at least one source document.
 
@@ -38,7 +38,7 @@ Every answer the system produces names at least one source document.
 
 ---
 
-## 3. The relevance gate stops out-of-corpus questions
+## 3. The relevance gate stops out-of-corpus questions (MET)
 
 When I ask a question my documents clearly don't cover, the relevance gate
 stops it and the system returns "I don't have enough information about that" —
@@ -55,7 +55,7 @@ in at least 4 of 5 tries.
 
 ---
 
-## 4. Something about your chunks
+## 4. Something about your chunks (MET, each chunk ONLY contains sources related to the ask. (i.e. question about laundry only chunks housing docs))
 Each chunk contains information about related subdivisions of the corpora, no chunk contains different parts of subdivision.
 <!-- YOU WRITE THIS ONE.
 
@@ -92,7 +92,23 @@ Responses should be tailored to the person asking them, if question sounds like 
 **Why this target:**
 There isnt a particular stricter or looser adjustment to be made for this one, however the model should respond how a person wants it to respond.
 
+## 1. 
 
+         For at least 4 of my 5 test questions, every factual claim in the answer
+          (a time, place, price, rule, etc.) can be found in the retrieved chunks.
+          I check this by hand, highlighting each claim and locating it in a chunk.
+
+         **Why this target:** Criterion 2 only proves a source is *named*, not that the answer is
+          supported by it. A model can cite "Dining Guide" and still invent hours.
+          I chose 4 of 5 rather than 5 of 5 because [what you expect to be hard,
+          e.g. a question that needs info from two chunks, where the model may
+          blend them]. I didn't go looser because a student acting on a made-up
+          detail is worse than getting no answer.
+
+         > **Revised in unit 2:** For at least 4 of my 5 test questions, every factual claim in the answer
+          (a time, place, price, rule, etc.) can be found in the retrieved chunks.
+         >
+         > **Why revised:** I couldnt judge how a response sounds accutarely question by question, without either inserting a sentence in each query that stated whether someone was a professor or student which seemed slightly pointless. This new criteria works off of another one and can actually be verified each time.
 ---
 
 <!-- ─────────────────────────────────────────────────────────────────────────
