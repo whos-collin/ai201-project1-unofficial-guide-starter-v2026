@@ -371,11 +371,11 @@ Secondly, I had it help me search for a term. Even if this seems rudimentary, an
      "I ran out of time" is fine if it's true. Pretending nothing is left is
      not.
 
-     Milestone 5. -->
+     Milestone 5. --> All My criteria were met so there is nothing that is broken perse.
 
 ## What I'd Do Differently
 
 <!-- Knowing what you know now — which of your five criteria would you write
      differently, and why?
 
-     Milestone 5. -->
+     Milestone 5. --> If i were to do this again, i would start with criteria that were accurate to what I was doing. I would have also tried to do a little more so that I COULD have experience fixing these criteria and missing objectives. 
